@@ -6,9 +6,6 @@ from torchvision import transforms
 import io
 import mlflow.pytorch
 
-# Define your model class (same as used during training)
-from model import LeNet  # replace with your actual model class
-
 app = Flask(__name__)
 
 # Load the model
@@ -47,3 +44,7 @@ def predict():
 
 if __name__ == '__main__':
     app.run(host="127.0.0.1", port=5001,debug=True)
+
+    ###
+    # call the service using the following
+    # curl -X POST -F "file=@sample_img_5.png" http://localhost:5001/predict
